@@ -24,6 +24,7 @@ This is a simple web application where users can buy fruits.
     2. Price of the fruit (in rupees)
     3. Picture of the fruit
     4. Total Quantity Available of the fruit
+    5. Creation Time
 
 ## URL Endpoints
 
@@ -35,9 +36,10 @@ This is a simple web application where users can buy fruits.
 | `/fruits/list/` | a table containing all fruits with their details along with update and delete button | Accessible to authenticated users only |
 | `/buy/` | a dummy page with all payment options | |
   
-    
 > You are free to add extra endopints as per your requirements, this is only for your minimum reference
 
+- you can use this project for reference [Image Gallery Project](https://shivprojects.pythonanywhere.com/image-gallery/)
+- Everything will be same `images` will be replaced by the `fruits` and some minor changes accordingly.   
 ## How to contribute 
 
 - Create a django project in this directory.
