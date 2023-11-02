@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+
+{% block body %}
+
+<div class="container" >
+
+ 
+
+{% if not request.user.is_anonymous %}
+
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Qty Available</th>
+            <th scope="col">Update/Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for fruit in fruits %}
+            <tr>
+                <th scope="row">{{fruit.id}}</th>
+                <td>{{fruit.name}}</td>
+                <td>{{fruit.price}}</td>
+                <td>{{fruit.qty}}</td>
+                <td><a class='btn btn-primary' href={{fruit.id}}/update>Update</a></td>
+                <td><a class='btn btn-primary' href={{fruit.id}}/delete>Delete</a></td>
+            </tr>
+            {% endfor %}
+           
+          
+         
+        </tbody>
+      </table>
+      <a class="btn btn-danger" aria-current="page" href="/add" style="border-radius:50%;">+</a>
+</div>
+
+{% else %}
+
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Qty Available</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for fruit in fruits %}
+            <tr>
+                <th scope="row">{{fruit.id}}</th>
+                <td>{{fruit.name}}</td>
+                <td>{{fruit.price}}</td>
+                <td>{{fruit.qty}}</td>
+                <td><a class="btn btn-primary" href={{fruit.id}}/buy>Buy</a></td>
+            </tr>
+            {% endfor %}
+          
+         
+        </tbody>
+      </table>
+      <a class="btn btn-danger" aria-current="page" href="/add" style="border-radius:50%;">+</a>
+</div>
+
+{% endif %}
+
+</div>
+
+{% endblock body %}
+
+

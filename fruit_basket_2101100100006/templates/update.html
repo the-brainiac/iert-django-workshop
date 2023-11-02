@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Update{% endblock title %}
+
+{% block body %}
+
+<form class="container" method="POST" action='update'>
+    {% csrf_token %}
+    
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" name='name' value="{{fruit.name}}">
+      
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input type="text" class="form-control" id="price" name='price' value="{{fruit.price}}">
+    </div>
+    <div class="mb-3">
+        <label for="qty" class="form-label">Quantity</label>
+        <input type="text" class="form-control" id="qty" name='qty' value="{{fruit.qty}}">
+      </div>
+    
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+
+{% endblock body %}
