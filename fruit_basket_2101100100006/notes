@@ -1,0 +1,7 @@
+startproject
+startapp
+make models
+register models in admin.py(admin.site.register(MODEL_NAME))
+mention app name in settings.py in INSTALLED_APPS section(ex :- home.apps.HomeConfig)
+make migration (python manage.py makemigrations)
+then migrate

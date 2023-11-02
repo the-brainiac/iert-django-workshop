@@ -1,0 +1,62 @@
+
+{% extends 'base.html' %}
+
+
+{% block title %}Buy{% endblock title %}
+
+
+
+{% block body %}
+
+
+
+<div class="container-md">
+    <form method="POST" action='buy'>
+        {% csrf_token %}
+
+         <div class="mb-3">
+            <label  class="form-label">Name : </label>
+            <span >{{fruit.name}}</span>
+        </div> 
+
+        <div class="mb-3">
+            <label for="Qty" class="form-label">Qty </label>
+            <input type="text" name='Qty' onInput="getInput()" id="purchaseQty">
+            <script>
+                function getInput() {
+                    let qty=document.getElementById("purchaseQty").value
+                let price={{fruit.price}}
+                let update=document.getElementById("Price")
+                
+                console.log(qty)
+                if(qty<{{fruit.qty}})
+                {update.innerText=price*qty
+                    document.getElementById('purchase').style.visibility="visible"
+                    document.getElementById('stock').style.visibility="hidden"
+                }
+                else
+                {
+                    update.innerText="N/A"
+                    document.getElementById('purchase').style.visibility="hidden"
+                    document.getElementById('stock').style.visibility="visible"
+                }
+            }
+            </script>
+        </div>
+
+       <div class="mb-3">
+            <label  class="form-label">Price : </label>
+            <span id="Price">{{fruit.price}}</span>
+        </div> 
+       
+       
+        <button type="submit" class="btn btn-primary" id="purchase">Purchase</button>
+        <span id="stock" style="visibility:hidden">Out of Stock!</span>
+    </form>
+    
+</div>
+
+
+
+
+{% endblock body %}
